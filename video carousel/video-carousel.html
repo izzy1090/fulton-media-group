@@ -1,0 +1,107 @@
+<style>
+    body {
+        margin: 0;
+    }
+    .carouselContainer {
+        width: 100%;
+        max-height: fit-content; /* Set a maximum height for the container */
+        overflow: hidden;
+    }
+
+    .videoContainer {
+        display: flex;
+        scroll-behavior: smooth;
+        overflow-x: scroll;
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;
+    }
+
+    .hide-scrollbar::-webkit-scrollbar {
+        /*Chrome, Safari, Edge*/
+        display: none;
+    }
+
+    .videoItem {
+        position: relative;
+        flex: 0 0 auto;
+        box-sizing: border-box;                 
+        overflow: hidden;
+    }
+
+    .videoItem > img {
+        width: 40vw;
+        height: auto;
+        box-sizing: border-box;
+        margin: .1em;
+        z-index: 90;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+
+    .icon {
+        position: absolute;
+        z-index: 100;
+        cursor: pointer;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 15%;
+    }
+
+    @media (hover:hover){
+        .videoItem > img:hover {
+            transform: scale(1.05);
+            transition: transform 1s ease;
+        }
+
+        .icon:hover {
+            fill: bisque;
+            transition: fill 200ms ease;
+        }
+    }
+
+     /* Extra small devices (phones, 600px and down) */
+    @media only screen and (max-width: 600px) {
+        .videoItem > img {
+            width: 70vw;
+        }
+    }
+    
+
+</style>
+<body>
+    <div class="carouselContainer">
+        <div class="videoContainer hide-scrollbar">
+            <div class="videoItem">
+                <svg class="icon sg-popup-id-4034" fill="white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c7.6-4.2 16.8-4.1 24.3 .5l144 88c7.1 4.4 11.5 12.1 11.5 20.5s-4.4 16.1-11.5 20.5l-144 88c-7.4 4.5-16.7 4.7-24.3 .5s-12.3-12.2-12.3-20.9V168c0-8.7 4.7-16.7 12.3-20.9z"/></svg>
+                <img alt="Nike video" 
+                    src="https://fultonsmgdev.wpenginepowered.com/wp-content/uploads/2024/02/Nike.jpg"></img>
+            </div>
+            <div class="videoItem">
+                <svg class="icon sg-popup-id-4040" fill="white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c7.6-4.2 16.8-4.1 24.3 .5l144 88c7.1 4.4 11.5 12.1 11.5 20.5s-4.4 16.1-11.5 20.5l-144 88c-7.4 4.5-16.7 4.7-24.3 .5s-12.3-12.2-12.3-20.9V168c0-8.7 4.7-16.7 12.3-20.9z"/></svg>
+                <img alt="Google Play video" 
+                    src="https://fultonsmgdev.wpenginepowered.com/wp-content/uploads/2024/02/MarioKart.jpg"></img>
+            </div>
+            <div class="videoItem">
+                <svg class="icon sg-popup-id-4032" fill="white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c7.6-4.2 16.8-4.1 24.3 .5l144 88c7.1 4.4 11.5 12.1 11.5 20.5s-4.4 16.1-11.5 20.5l-144 88c-7.4 4.5-16.7 4.7-24.3 .5s-12.3-12.2-12.3-20.9V168c0-8.7 4.7-16.7 12.3-20.9z"/></svg>
+                <img alt="Nature Valley video" 
+                    src="https://fultonsmgdev.wpenginepowered.com/wp-content/uploads/2024/02/Nature-Valley.jpg"></img>
+            </div>
+            <div class="videoItem">
+                <svg class="icon sg-popup-id-4035" fill="white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c7.6-4.2 16.8-4.1 24.3 .5l144 88c7.1 4.4 11.5 12.1 11.5 20.5s-4.4 16.1-11.5 20.5l-144 88c-7.4 4.5-16.7 4.7-24.3 .5s-12.3-12.2-12.3-20.9V168c0-8.7 4.7-16.7 12.3-20.9z"/></svg>
+                <img alt="Mazda video" 
+                    src="https://fultonsmgdev.wpenginepowered.com/wp-content/uploads/2024/02/Mazda.jpg"></img>
+            </div>
+            <div class="videoItem">
+                <svg class="icon sg-popup-id-4030" fill="white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c7.6-4.2 16.8-4.1 24.3 .5l144 88c7.1 4.4 11.5 12.1 11.5 20.5s-4.4 16.1-11.5 20.5l-144 88c-7.4 4.5-16.7 4.7-24.3 .5s-12.3-12.2-12.3-20.9V168c0-8.7 4.7-16.7 12.3-20.9z"/></svg>
+                <img alt="Google Fact Checker Video" 
+                    src="https://fultonsmgdev.wpenginepowered.com/wp-content/uploads/2024/02/Group-1.jpg"></img>
+            </div>
+            <div class="videoItem">
+                <svg class="icon sg-popup-id-4039" fill="white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM188.3 147.1c7.6-4.2 16.8-4.1 24.3 .5l144 88c7.1 4.4 11.5 12.1 11.5 20.5s-4.4 16.1-11.5 20.5l-144 88c-7.4 4.5-16.7 4.7-24.3 .5s-12.3-12.2-12.3-20.9V168c0-8.7 4.7-16.7 12.3-20.9z"/></svg>
+                <img alt="John Deere video" 
+                    src="https://fultonsmgdev.wpenginepowered.com/wp-content/uploads/2024/02/Group-2.jpg"></img>
+            </div>
+        </div>
+    </div>
+</body>

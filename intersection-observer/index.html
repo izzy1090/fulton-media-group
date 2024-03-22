@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<head></head>
+<style>
+
+</style>
+<bod>
+    <div id="work-container" style="width: 100%; height: 400px; background-color: black;">work</div>
+    <div style="width: 100%; height: 400px; background-color: yellow;">other stuff</div>
+    <div style="width: 100%; height: 600px; background-color: aqua;">more stuff</div> 
+    <div id="mission-statement" style="width: 100%; height: 500px; background-color: bisque;">and more stuff again</div>
+</bod>
+<script>
+function setupWorkObserver() 
+{
+    const workContainerObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) 
+            {
+                entry.target.style.opacity = 1;
+                entry.target.style.backgroundColor = 'rgb(37, 38, 39)';
+                entry.target.style.transition = 'background-color 1s ease, opacity 1s ease';
+                observer.unobserve(entry.target);
+            } else {
+                entry.target.style.opacity = 0;
+                entry.target.style.backgroundColor = 'white';
+            }
+        });
+    });
+
+    const workContainer = document.getElementById('work-container');
+    if (workContainer) 
+    {
+        workContainerObserver.observe(workContainer);
+    }
+};
+
+function setupSwipeRightObserver()
+{
+    const swipeRightObserver = new IntersectionObserver((entries)=>{
+        entries.forEach((entry)=>{
+            if(entry.isIntersecting & entry.target.id !== '')
+            {
+                entry.target.style.transform = 'translateX(0%)';
+                entry.target.style.opacity = 1;
+                entry.target.style.transition = 'transform 1500ms ease, opacity 2s ease';
+                entry.target.id = '';
+                observer.unobserve(entry.target);
+            } else if (entry.target.id == "mission-statement" || entry.target.id == 'company-position' )
+            {
+                entry.target.style.opacity = 0;
+                entry.target.style.transform = "translateX(-100%)";
+            }
+        })
+    }, {rootMargin: "50px"});
+
+    const missionStatement = document.getElementById('mission-statement');
+  	const companyPosition = document.getElementById('company-position');
+    if(missionStatement)
+    {
+        swipeRightObserver.observe(missionStatement);
+    } 
+  	if (companyPosition)
+    {
+    	swipeRightObserver.observe(companyPosition);
+    }
+};
+
+setupSwipeRightObserver();
+setupWorkObserver();
+
+</script>
