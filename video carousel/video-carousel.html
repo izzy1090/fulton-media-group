@@ -69,38 +69,71 @@
         top: 50%;
         transform: translate(-50%, -50%);
         z-index: 1000;
-        background-color: azure;
+        background-color: #ffffff85;
     }
 
     .videoPlayer {
-        width: 70%;
-        height: 70%;
+        width: 900px;
+        height: 506px;
         position: absolute;
         left: 50%;
         top: 50%;
-        transform: translate(-50%, -50%);
+        z-index: 1001;
+        transform: translate(-50%, -60%);
+    }
+
+    #close-video {
+        width: 20px;
+        height: 20px;
+        margin: 10px 0px 10px 0px;
+        cursor: pointer;
+    }
+
+    #close-video:hover {
+        fill: gray;
+    }
+
+    .videoPlayer > iframe {
+        width: 100%;
+        height: 100%;
     }
 
     #video-hide {
         display: none;
     }
 
-     /* Extra small devices (phones, 600px and down) */
+    @media only screen and (max-width: 1000px) {
+        .videoPlayer {
+            width: 600px;
+            height: 338px;
+        }
+    }
+
+
+    /* Extra small devices (phones, 600px and down) */
     @media only screen and (max-width: 600px) {
         .videoItem > img {
             width: 70vw;
         }
+
+        .videoPlayer {
+            width: 400px;
+            height: 225px;
+        }
     }
+
 </style>
 <body>
-    <div class="videoPlayerContainer" id="video-hide">
-        <button id="close-video">x</button>
-        <iframe src="" 
-            width="1080" height="608" 
-            frameborder="0" 
-            allowfullscreen="allowfullscreen" 
-            class="videoPlayer" id="video"></iframe>
-    </div>
+    <section class="videoPlayerContainer" id="video-hide">
+        <div class="videoPlayer">
+            <svg id="close-video" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 24 24"><path d="M 4.9902344 3.9902344 A 1.0001 1.0001 0 0 0 4.2929688 5.7070312 L 10.585938 12 L 4.2929688 18.292969 A 1.0001 1.0001 0 1 0 5.7070312 19.707031 L 12 13.414062 L 18.292969 19.707031 A 1.0001 1.0001 0 1 0 19.707031 18.292969 L 13.414062 12 L 19.707031 5.7070312 A 1.0001 1.0001 0 0 0 18.980469 3.9902344 A 1.0001 1.0001 0 0 0 18.292969 4.2929688 L 12 10.585938 L 5.7070312 4.2929688 A 1.0001 1.0001 0 0 0 4.9902344 3.9902344 z"></path></svg>
+            <iframe src="" 
+                width="1080" height="608" 
+                frameborder="0" 
+                allowfullscreen="allowfullscreen" 
+                class="" id="video"></iframe>
+        </div>
+    </section>
     <section class="carouselContainer">
         <div class="videoCarouselContainer hide-scrollbar">
             <div class="videoItem">
@@ -147,6 +180,8 @@
         'john-deere-video'
     ];
 
+    const pageContent = document.querySelector('*');
+
     // Looks for the ID of the div that's been clicked and changes the source of the iFrame
     videoIds.forEach((id)=>{
         document.getElementById(id).addEventListener('click', ()=>{
@@ -174,6 +209,7 @@
             {
                 document.getElementById('video').src = "https://www.youtube.com/embed/3CH0sBd1YGU?si=x06r0bbS6lGMbnEk";
             }
+            pageContent.style.overflow = 'hidden';
             const videoHide = document.querySelector('#video-hide');
             videoHide.id = 'video-show';
         })
@@ -183,6 +219,7 @@
             const video = document.querySelector('#video-show');
             if (video !== null)
             {
+                pageContent.style.overflow = '';
                 document.getElementById('video').src = "";
                 video.id = 'video-hide';
             }
