@@ -1,4 +1,8 @@
 <style>
+    /* For test purposes, don't include this */
+    .on {
+        display: none;
+    }
 
     .anchor {
         cursor: pointer;
@@ -12,51 +16,73 @@
 
 </style>
 <body>
-    <div class="bt_bb_tab_item" style="width: 100%; height: 100px; background-color: teal;"><div><div id="original-music-tab">Test</div></div></div>
-    <div class="bt_bb_tab_item" style="width: 100%; height: 100px; background-color: yellow;"><div id="long-form-scores-tab">Test</div></div>
-    <div style="background-color: black;">
-        <span class="anchor" id="original-music" style="cursor: pointer;">Original Music</span>
-        <span class="anchor" id="long-form-scores" style="cursor: pointer;">Long Form scores</span>
+    <div class="bt_bb_fe_edit">
+        tab
+        <div class="bt_bb_tab_item" style="width: 100%; height: 100px; background-color: teal;">
+            <div id="empty">
+                <div id="original-music-tab">Test</div>
+            </div>
+        </div>
     </div>
+    <div class="bt_bb_fe_edit">
+        tab
+        <div class="bt_bb_tab_item" style="width: 100%; height: 100px; background-color: yellow;">
+            <div class="empty">
+                <div id="long-form-scores-tab">Test</div>
+            </div>
+        </div>
+    </div>
+    <span class="anchor" id="original-music" style="cursor: pointer;">Original Music</span>
+    <span class="anchor" id="long-form-scores" style="cursor: pointer;">Long Form scores</span>
 </body>
 <script>
     
     const anchorText = document.querySelectorAll('.anchor');
-    const tab = document.querySelectorAll('.bt_bb_tab_item');
+    const tabContent = document.querySelectorAll('.bt_bb_tab_item');
+    const tab = document.getElementsByClassName('bt_bb_fe_edit');
     
     anchorText.forEach((anchor)=>{
         anchor.addEventListener('click', (event)=>{
-            
+            // Removes the existing 'on' class from the tab headers
+            Array.from(tab).forEach((el)=>el.classList.remove('on'));
+            // Removes the existing 'on' class from the tab content
+            tabContent.forEach((el)=>el.classList.remove('on'));
             if (anchor.id === 'original-music')
             {
-                const originalMusicTab = document.querySelector('#original-music-tab').closest('.bt_bb_tab_item');
-                tab.forEach((el)=>el.classList.remove('on'))
-                originalMusicTab.classList.add('on');
+                const originalMusic = document.querySelector('#original-music-tab').closest('.bt_bb_tab_item');
+                const originalMusicHeader = document.querySelector('[data-bt-bb-fe-atts=\'{"title":"Original Music"}\']');
+                originalMusicHeader.classList.add('on');
+                originalMusic.classList.add('on');
             } else if (anchor.id === 'long-form-scores')
             {
-                const originalMusicTab = document.querySelector('#long-form-scores-tab').closest('.bt_bb_tab_item');
-                tab.forEach((el)=>el.classList.remove('on'))
-                originalMusicTab.classList.add('on');
+                const longformScores = document.querySelector('#long-form-scores-tab').closest('.bt_bb_tab_item');
+                const longformScoresHeader = document.querySelector('[data-bt-bb-fe-atts=\'{"title":"Long Form Scores"}\']');
+                longformScoresHeader.classList.add('on');
+                longformScores.classList.add('on');
             } else if (anchor.id === 'songs-and-supervision')
             {
-                const originalMusicTab = document.querySelector('#songs-and-supervision-tab').closest('.bt_bb_tab_item');
-                tab.forEach((el)=>el.classList.remove('on'))
-                originalMusicTab.classList.add('on');
+                const songsSupervision = document.querySelector('#songs-and-supervision-tab').closest('.bt_bb_tab_item');
+                const songsSupervisionHeader = document.querySelector('[data-bt-bb-fe-atts=\'{"title":"Songs &amp; Supervision"}\']');
+                songsSupervisionHeader.classList.add('on');
+                songsSupervision.classList.add('on');
             } else if (anchor.id === 'sonic-identities')
             {
-                const originalMusicTab = document.querySelector('#sonic-identities-tab').closest('.bt_bb_tab_item');
-                tab.forEach((el)=>el.classList.remove('on'))
-                originalMusicTab.classList.add('on');
+                const sonicIdentities = document.querySelector('#sonic-identities-tab').closest('.bt_bb_tab_item');
+                const sonicIdentitiesHeader = document.querySelector('[data-bt-bb-fe-atts=\'{"title":"Sonic Identities"}\']');
+                sonicIdentitiesHeader.classList.add('on');
+                sonicIdentities.classList.add('on');
             } else if (anchor.id === 'sound-design')
             {
-                const originalMusicTab = document.querySelector('#sound-design-tab').closest('.bt_bb_tab_item');
-                tab.forEach((el)=>el.classList.remove('on'))
-                originalMusicTab.classList.add('on');
+                const soundDesign = document.querySelector('#sound-design-tab').closest('.bt_bb_tab_item');
+                const soundDesignHeader = document.querySelector('[data-bt-bb-fe-atts=\'{"title":"Sound Design"}\']');
+                soundDesignHeader.classList.add('on');
+                soundDesign.classList.add('on');
             } else if (anchor.id === 'audio-post')
             {
-                const originalMusicTab = document.querySelector('#audio-post-tab').closest('.bt_bb_tab_item');
-                tab.forEach((el)=>el.classList.remove('on'))
-                originalMusicTab.classList.add('on');
+                const audioPost = document.querySelector('#audio-post-tab').closest('.bt_bb_tab_item');
+                const audioPostHeader = document.querySelector('[data-bt-bb-fe-atts=\'{"title":"Audio Post"}\']');
+                audioPostHeader.classList.add('on');
+                audioPost.classList.add('on');
             }
         })
     })
