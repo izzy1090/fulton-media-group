@@ -39,50 +39,50 @@
     
     const anchorText = document.querySelectorAll('.anchor');
     const tabContent = document.querySelectorAll('.bt_bb_tab_item');
-    const tab = document.getElementsByClassName('bt_bb_fe_edit');
+    const tabs = document.querySelector('.bt_bb_tabs_header');
     
     anchorText.forEach((anchor)=>{
         anchor.addEventListener('click', (event)=>{
             // Removes the existing 'on' class from the tab headers
-            Array.from(tab).forEach((el)=>el.classList.remove('on'));
+            tabs.childNodes.forEach((el)=>el.classList.remove('on'));
             // Removes the existing 'on' class from the tab content
             tabContent.forEach((el)=>el.classList.remove('on'));
             if (anchor.id === 'original-music')
             {
                 const originalMusic = document.querySelector('#original-music-tab').closest('.bt_bb_tab_item');
-                const originalMusicHeader = document.querySelector('[data-bt-bb-fe-atts=\'{"title":"Original Music"}\']');
-                originalMusicHeader.classList.add('on');
                 originalMusic.classList.add('on');
+                const originalMusicHeader = "<span>Original Music</span>";
+                tabs.childNodes.forEach((el)=> el.innerHTML === originalMusicHeader ? el.classList.add('on') : null);
             } else if (anchor.id === 'long-form-scores')
             {
                 const longformScores = document.querySelector('#long-form-scores-tab').closest('.bt_bb_tab_item');
-                const longformScoresHeader = document.querySelector('[data-bt-bb-fe-atts=\'{"title":"Long Form Scores"}\']');
-                longformScoresHeader.classList.add('on');
                 longformScores.classList.add('on');
+                const longformScoresHeader = "<span>Long Form Scores</span>";
+                tabs.childNodes.forEach((el)=> el.innerHTML === longformScoresHeader ? el.classList.add('on') : null);
             } else if (anchor.id === 'songs-and-supervision')
             {
                 const songsSupervision = document.querySelector('#songs-and-supervision-tab').closest('.bt_bb_tab_item');
-                const songsSupervisionHeader = document.querySelector('[data-bt-bb-fe-atts=\'{"title":"Songs &amp; Supervision"}\']');
-                songsSupervisionHeader.classList.add('on');
                 songsSupervision.classList.add('on');
+                const songsSupervisionHeader = "<span>Songs &amp; Supervision</span>";
+                tabs.childNodes.forEach((el)=> el.innerHTML === songsSupervisionHeader ? el.classList.add('on') : null);
             } else if (anchor.id === 'sonic-identities')
             {
                 const sonicIdentities = document.querySelector('#sonic-identities-tab').closest('.bt_bb_tab_item');
-                const sonicIdentitiesHeader = document.querySelector('[data-bt-bb-fe-atts=\'{"title":"Sonic Identities"}\']');
-                sonicIdentitiesHeader.classList.add('on');
                 sonicIdentities.classList.add('on');
+                const sonicIdentitiesHeader = "<span>Sonic Identities</span>";
+                tabs.childNodes.forEach((el)=> el.innerHTML === sonicIdentitiesHeader ? el.classList.add('on') : null);
             } else if (anchor.id === 'sound-design')
             {
                 const soundDesign = document.querySelector('#sound-design-tab').closest('.bt_bb_tab_item');
-                const soundDesignHeader = document.querySelector('[data-bt-bb-fe-atts=\'{"title":"Sound Design"}\']');
-                soundDesignHeader.classList.add('on');
                 soundDesign.classList.add('on');
+                const soundDesignHeader = "<span>Sound Design</span>";
+                tabs.childNodes.forEach((el)=> el.innerHTML === soundDesignHeader ? el.classList.add('on') : null);
             } else if (anchor.id === 'audio-post')
             {
                 const audioPost = document.querySelector('#audio-post-tab').closest('.bt_bb_tab_item');
-                const audioPostHeader = document.querySelector('[data-bt-bb-fe-atts=\'{"title":"Audio Post"}\']');
-                audioPostHeader.classList.add('on');
                 audioPost.classList.add('on');
+                const audioPostHeader = "<span>Audio Post</span>";
+                tabs.childNodes.forEach((el)=> el.innerHTML === audioPostHeader ? el.classList.add('on') : null);
             }
         })
     })
