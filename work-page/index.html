@@ -1,30 +1,63 @@
 <style>
 
+    .anchor {
+        cursor: pointer;
+        text-decoration: underline;
+        color: beige;
+    }
+
+    .anchor:hover {
+        color: #ffff;
+    }
+
 </style>
 <body>
-    <div class="bt_bb_tab_item" style="width: 100%; height: 100px; background-color: teal;"><span class="tab" id="original-music">Original Music</span></div>
-    <div class="bt_bb_tab_item" style="width: 100%; height: 100px; background-color: yellow;"><span class="tab" id="long-form-scores">Long Form Scores</span></div>
-    <div class="bt_bb_tab_item" style="width: 100%; height: 100px; background-color: aqua;"><span class="tab" id="songs-and-supervision">Songs & Supervision</span></div> 
-    <div class="bt_bb_tab_item" style="width: 100%; height: 100px; background-color: bisque;"><span class="tab" id="sonic-identities">Sonic Identities</span></div>
-    <div class="bt_bb_tab_item" style="width: 100%; height: 100px; background-color: burlywood;"><span class="tab" id="sound-design">Sound Design</span></div>
-    <div class="bt_bb_tab_item" style="width: 100%; height: 100px; background-color: yellow;"><span class="tab" id="audio-post">Audio Post</span></div>
+    <div class="bt_bb_tab_item" style="width: 100%; height: 100px; background-color: teal;"><div><div id="original-music-tab">Test</div></div></div>
+    <div class="bt_bb_tab_item" style="width: 100%; height: 100px; background-color: yellow;"><div id="long-form-scores-tab">Test</div></div>
+    <div style="background-color: black;">
+        <span class="anchor" id="original-music" style="cursor: pointer;">Original Music</span>
+        <span class="anchor" id="long-form-scores" style="cursor: pointer;">Long Form scores</span>
+    </div>
 </body>
 <script>
-    const tabIDs = [
-        "original-music",
-        "long-form-scores",
-        "songs-and-supervision",
-        "sonic-identities",
-        "sound-design",
-        "audio-post"
-    ]
-    tabIDs.forEach((id)=>{
-        const element = document.getElementById(id);
-        const tab = document.querySelectorAll('.bt_bb_tab_item');
-
-        element.addEventListener('click', (event)=>{
-            console.log(event)
-            tab.forEach((div)=> span.classList.toggle("on", span.id === id) )
+    
+    const anchorText = document.querySelectorAll('.anchor');
+    const tab = document.querySelectorAll('.bt_bb_tab_item');
+    
+    anchorText.forEach((anchor)=>{
+        anchor.addEventListener('click', (event)=>{
+            
+            if (anchor.id === 'original-music')
+            {
+                const originalMusicTab = document.querySelector('#original-music-tab').closest('.bt_bb_tab_item');
+                tab.forEach((el)=>el.classList.remove('on'))
+                originalMusicTab.classList.add('on');
+            } else if (anchor.id === 'long-form-scores')
+            {
+                const originalMusicTab = document.querySelector('#long-form-scores-tab').closest('.bt_bb_tab_item');
+                tab.forEach((el)=>el.classList.remove('on'))
+                originalMusicTab.classList.add('on');
+            } else if (anchor.id === 'songs-and-supervision')
+            {
+                const originalMusicTab = document.querySelector('#songs-and-supervision-tab').closest('.bt_bb_tab_item');
+                tab.forEach((el)=>el.classList.remove('on'))
+                originalMusicTab.classList.add('on');
+            } else if (anchor.id === 'sonic-identities')
+            {
+                const originalMusicTab = document.querySelector('#sonic-identities-tab').closest('.bt_bb_tab_item');
+                tab.forEach((el)=>el.classList.remove('on'))
+                originalMusicTab.classList.add('on');
+            } else if (anchor.id === 'sound-design')
+            {
+                const originalMusicTab = document.querySelector('#sound-design-tab').closest('.bt_bb_tab_item');
+                tab.forEach((el)=>el.classList.remove('on'))
+                originalMusicTab.classList.add('on');
+            } else if (anchor.id === 'audio-post')
+            {
+                const originalMusicTab = document.querySelector('#audio-post-tab').closest('.bt_bb_tab_item');
+                tab.forEach((el)=>el.classList.remove('on'))
+                originalMusicTab.classList.add('on');
+            }
         })
     })
     
