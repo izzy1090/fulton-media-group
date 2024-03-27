@@ -1,0 +1,31 @@
+<style>
+
+</style>
+<body>
+    <div class="bt_bb_tab_item" style="width: 100%; height: 100px; background-color: teal;"><span class="tab" id="original-music">Original Music</span></div>
+    <div class="bt_bb_tab_item" style="width: 100%; height: 100px; background-color: yellow;"><span class="tab" id="long-form-scores">Long Form Scores</span></div>
+    <div class="bt_bb_tab_item" style="width: 100%; height: 100px; background-color: aqua;"><span class="tab" id="songs-and-supervision">Songs & Supervision</span></div> 
+    <div class="bt_bb_tab_item" style="width: 100%; height: 100px; background-color: bisque;"><span class="tab" id="sonic-identities">Sonic Identities</span></div>
+    <div class="bt_bb_tab_item" style="width: 100%; height: 100px; background-color: burlywood;"><span class="tab" id="sound-design">Sound Design</span></div>
+    <div class="bt_bb_tab_item" style="width: 100%; height: 100px; background-color: yellow;"><span class="tab" id="audio-post">Audio Post</span></div>
+</body>
+<script>
+    const tabIDs = [
+        "original-music",
+        "long-form-scores",
+        "songs-and-supervision",
+        "sonic-identities",
+        "sound-design",
+        "audio-post"
+    ]
+    tabIDs.forEach((id)=>{
+        const element = document.getElementById(id);
+        const tab = document.querySelectorAll('.bt_bb_tab_item');
+
+        element.addEventListener('click', (event)=>{
+            console.log(event)
+            tab.forEach((div)=> span.classList.toggle("on", span.id === id) )
+        })
+    })
+    
+</script>
