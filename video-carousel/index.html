@@ -115,6 +115,13 @@
         }
     }
 
+    /* Extra small devices (phones, 600px and down) */
+    @media only screen and (max-width: 600px) {
+        .videoItem > img {
+            width: 80vw;
+        }
+    }
+
 </style>
 <body>
     <section class="videoPlayerContainer" id="video-hide">
@@ -175,11 +182,16 @@
         'john-deere-video'
     ];
 
+    const mainHeader = document.querySelector('.mainHeader');
+    const verticalHeaderTop = document.querySelector('.bt-vertical-header-top');
     const pageContent = document.querySelector('*');
 
     // Looks for the ID of the div that's been clicked and changes the source of the iFrame
     videoIds.forEach((id)=>{
         document.getElementById(id).addEventListener('click', ()=>{
+            mainHeader.style.zIndex = '0';
+            verticalHeaderTop.style.zIndex = '0';
+
             if (id === 'nike-video') 
             {
                 document.getElementById('video').src = "https://www.youtube.com/embed/HTFAYiM11yA?si=QTYiKT_tlKf4eiSE";
@@ -213,6 +225,9 @@
             const video = document.querySelector('#video-show');
             if (video !== null)
             {
+                mainHeader.style.zIndex = '';
+                verticalHeaderTop.style.zIndex = '';
+
                 pageContent.style.overflow = '';
                 document.getElementById('video').src = "";
                 video.id = 'video-hide';
