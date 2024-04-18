@@ -107,11 +107,10 @@
         display: none;
     }
 
-    /* Extra small devices (phones, 600px and down) */
     @media only screen and (orientation: landscape) {
         .videoPlayer {
             width: 50vw;
-            height: calc(50vw * 9 / 16);
+            height: calc(50vw* 9 / 16);
         }
     }
 
@@ -124,7 +123,7 @@
 
 </style>
 <body>
-    <section class="videoPlayerContainer" id="video-hide">
+<section class="videoPlayerContainer" id="video-hide">
         <div class="videoPlayer">
             <div class="closeFlex">
                 <svg id="close-video" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 24 24"><path d="M 4.9902344 3.9902344 A 1.0001 1.0001 0 0 0 4.2929688 5.7070312 L 10.585938 12 L 4.2929688 18.292969 A 1.0001 1.0001 0 1 0 5.7070312 19.707031 L 12 13.414062 L 18.292969 19.707031 A 1.0001 1.0001 0 1 0 19.707031 18.292969 L 13.414062 12 L 19.707031 5.7070312 A 1.0001 1.0001 0 0 0 18.980469 3.9902344 A 1.0001 1.0001 0 0 0 18.292969 4.2929688 L 12 10.585938 L 5.7070312 4.2929688 A 1.0001 1.0001 0 0 0 4.9902344 3.9902344 z"></path></svg>
@@ -184,7 +183,9 @@
 
     const mainHeader = document.querySelector('.mainHeader');
     const verticalHeaderTop = document.querySelector('.bt-vertical-header-top');
-    const pageContent = document.querySelector('*');
+
+    const pageContent = document.querySelector('.bt-page-wrap');
+    const entirePage = document.querySelector('*');
 
     // Looks for the ID of the div that's been clicked and changes the source of the iFrame
     videoIds.forEach((id)=>{
@@ -217,9 +218,11 @@
                 document.getElementById('video').src = "https://www.youtube.com/embed/3CH0sBd1YGU?si=x06r0bbS6lGMbnEk";
             }
             pageContent.style.overflow = 'hidden';
+            entirePage.style.overflow = 'hidden';
             const videoHide = document.querySelector('#video-hide');
             videoHide.id = 'video-show';
         })
+
         // Closes the video player and resets src to prevent video from player after it's closed
         document.getElementById('close-video').addEventListener('click', ()=>{
             const video = document.querySelector('#video-show');
@@ -227,8 +230,9 @@
             {
                 mainHeader.style.zIndex = '';
                 verticalHeaderTop.style.zIndex = '';
-
-                pageContent.style.overflow = '';
+                
+                entirePage.style.overflow = '';
+                pageContent.style.overflowY = 'scroll';
                 document.getElementById('video').src = "";
                 video.id = 'video-hide';
             }
